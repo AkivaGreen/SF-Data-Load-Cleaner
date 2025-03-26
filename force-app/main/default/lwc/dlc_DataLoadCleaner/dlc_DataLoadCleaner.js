@@ -17,6 +17,7 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
     showFileInfo = false;
     file = [];
 
+    disableDataLoadBtns = true;
     showLandingPage = true;
     showNewDataLoadPage = false;
     showLoadDataLoadPage = false;
@@ -29,15 +30,19 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
         message: ''
     };
 
+    sObject;
     sObjectOptions = [];
 
     setSObjectOptions(){
+        console.log('setSObjectOptions()');
         getSObjectOptions().then(result => {
+            console.log('result.length',result.length);
             if(result.length > 0){
                 for(let i = 0; i < result.length; i++){
-                    this.sObjectOptions.push({label: result[i], value: result[i]});
+                    this.sObjectOptions.push(result[i]);
                 }
             }
+            console.log('sObjectOptions',this.sObjectOptions[0]);
         });
     }
 
@@ -53,7 +58,6 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
         this.startSpinner();
 
         this.showLandingPage = false;
-        this.setSObjectOptions();
         this.showNewDataLoadPage = true;
 
         this.stopSpinner();
@@ -67,5 +71,30 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
 
         this.stopSpinner();
     }
+
+    handleSObjectBlur(event){
+        console.log('handleSObjectBlur()');
+        if(this.sObject != event.target.value){
+            this.sObject = event.target.value;
+            console.log('sObject',this.sObject);
+            this.validateSObject();
+        }
+    }
     
+    validateSObject() {
+        console.log('validateSObject');
+        let validSObject = false;
+
+        if(this.sObject != undefined || this.sObject != ''){
+            this.setSObjectOptions();
+            validSObject = this.sObjectOptions.includes(this.sObject);
+        }
+        console.log('validSObject', validSObject);
+        
+        if(validSObject){
+            this.disableDataLoadBtns = false;
+        } else {
+            this.disableDataLoadBtns = true;
+        }
+    }
 }
