@@ -7,11 +7,13 @@ import LightningConfirm from 'lightning/confirm';
 import USER_ID from '@salesforce/user/Id';
 import NAME_FIELD from '@salesforce/schema/User.Name';
 
+import getSObjectOptions from '@salesforce/apex/DLC_DataLoadCleanerController.getSObjectOptions';
+
 export default class Dlc_DataLoadCleaner extends LightningElement {
 
     @api recordId;
     dataLoad;
-    loadingSpinner = true;
+    loadingSpinner = false;
     showFileInfo = false;
     file = [];
 
@@ -26,6 +28,8 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
         title: '',
         message: ''
     };
+
+    sObjectOptions = 
 
     startSpinner(){
         this.loadingSpinner = true;

@@ -19,13 +19,20 @@
                     </p>
                 </lightning-layout-item>
                 <lightning-layout-item>
-                    <lightning-button label="New Data Load" title="New Data Load" onclick={handleNewDataLoad}></lightning-button>
-                    <lightning-button label="Load Data Load" title="Load Data Load" onclick={handleLoadDataLoad}></lightning-button>"
+                    <lightning-button-group>
+                        <lightning-button label="New Data Load" title="New Data Load" onclick={handleNewDataLoad}></lightning-button>
+                        <lightning-button label="Load Data Load" title="Load Data Load" onclick={handleLoadDataLoad}></lightning-button>
+                    </lightning-button-group>
                 </lightning-layout-item>
             </lightning-layout>
         </template>
         <template if:true={showNewDataLoadPage}>
-    
+            <lightning-layout multiple-rows="true" horizontal-align="center" vertical-align="center">
+                <lightning-layout-item size="12" padding="around-small">
+                    <lightning-select name="sObject" label="sObject" value={sObject} 
+                    onchange={handleSObjectChange} options={sObjectOptions} requried></lightning-select>
+                </lightning-layout-item>
+            </lightning-layout>
         </template>
         <template if:true={showLoadDataLoadPage}>
     
