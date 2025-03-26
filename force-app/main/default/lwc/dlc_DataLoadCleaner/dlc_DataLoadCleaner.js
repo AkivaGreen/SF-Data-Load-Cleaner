@@ -21,5 +21,36 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
     showFieldMappingPage = false;
     showPicklistMappingPage = false;
     showSummaryPage = false;
+    error = {
+        display: false,
+        title: '',
+        message: ''
+    };
+
+    startSpinner(){
+        this.loadingSpinner = true;
+    }
+
+    stopSpinner(){
+        this.loadingSpinner = false;
+    }
+
+    handleNewDataLoad() {
+        this.startSpinner();
+
+        this.showLandingPage = false;
+        this.showNewDataLoadPage = true;
+
+        this.stopSpinner();
+    }
+
+    handleLoadDataLoad() {
+        this.startSpinner();
+
+        this.showLandingPage = false;
+        this.showLoadDataLoadPage = true;
+
+        this.stopSpinner();
+    }
     
 }

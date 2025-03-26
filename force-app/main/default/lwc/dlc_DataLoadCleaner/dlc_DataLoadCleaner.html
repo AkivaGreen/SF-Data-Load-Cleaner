@@ -3,31 +3,41 @@
         <lightning-spinner alternative-text="Loading..." size="large"></lightning-spinner>
     </template>
     <div class="c-container">
-        <lightning-layout multiple-rows="true" horizontal-align="center" vertical-align="center">
-            <lightning-layout-item size="12" padding="around-small">
-                <h1 class="slds-text-heading_medium">Data Load Cleaner</h1>
-                <p class="slds-text-body_regular">
-                    This utility will allow for data clean up of CSV fiels with picklist field mapping
-                </p>
-            </lightning-layout-item>
-        </lightning-layout>
+        <template lwc:if={error.display}>
+            <span>{error.title}</span>
+            <br />
+            <span>{error.message}</span>
+        </template>
     </div>
-    <template if:true={showLandingPage}>
-        
-    </template>
-    <template if:true={showNewDataLoadPage}>
-
-    </template>
-    <template if:true={showLoadDataLoadPage}>
-
-    </template>
-    <template if:true={showFieldMappingPage}>
-
-    </template>
-    <template if:true={showPicklistMappingPage}>
-
-    </template>
-    <template if:true={showSummaryPage}>
-
-    </template>
+    <div class="c-container">
+        <template if:true={showLandingPage}>
+            <lightning-layout multiple-rows="true" horizontal-align="center" vertical-align="center">
+                <lightning-layout-item size="12" padding="around-small">
+                    <h1 class="slds-text-heading_medium">Data Load Cleaner</h1>
+                    <p class="slds-text-body_regular">
+                        This utility will allow for data clean up of CSV fields with picklist field mapping
+                    </p>
+                </lightning-layout-item>
+                <lightning-layout-item>
+                    <lightning-button label="New Data Load" title="New Data Load" onclick={handleNewDataLoad}></lightning-button>
+                    <lightning-button label="Load Data Load" title="Load Data Load" onclick={handleLoadDataLoad}></lightning-button>"
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+        <template if:true={showNewDataLoadPage}>
+    
+        </template>
+        <template if:true={showLoadDataLoadPage}>
+    
+        </template>
+        <template if:true={showFieldMappingPage}>
+    
+        </template>
+        <template if:true={showPicklistMappingPage}>
+    
+        </template>
+        <template if:true={showSummaryPage}>
+    
+        </template>
+    </div>
 </template>
