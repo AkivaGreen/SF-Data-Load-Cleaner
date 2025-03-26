@@ -5,6 +5,14 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>DLC_CSVProcessor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DLC_DataLoadCleanerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -19,6 +27,10 @@
     <layoutAssignments>
         <layout>DLC_Data_Load__c-Data Load Layout</layout>
     </layoutAssignments>
+    <tabVisibilities>
+        <tab>Data_Load_Cleaner</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
     <userLicense>External Apps Login</userLicense>
     <userPermissions>
         <enabled>true</enabled>

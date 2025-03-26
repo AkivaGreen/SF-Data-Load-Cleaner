@@ -15,6 +15,7 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>Data Load Cleaner</label>
     <navType>Standard</navType>
+    <tabs>Data_Load_Cleaner</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Data_Load_Cleaner_UtilityBar</utilityBar>
 </CustomApplication>
