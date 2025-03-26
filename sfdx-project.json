@@ -4,7 +4,8 @@
       "path": "force-app",
       "default": true,
       "package": "DataLoadCleanup",
-      "versionNumber": "0.1.0.0"
+      "versionNumber": "1.0.0.0",
+      "definitionFile": "config/project-scratch-def.json"
     }
   ],
   "name": "DLC",
