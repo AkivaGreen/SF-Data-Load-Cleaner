@@ -29,7 +29,17 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
         message: ''
     };
 
-    sObjectOptions = 
+    sObjectOptions = [];
+
+    setSObjectOptions(){
+        getSObjectOptions().then(result => {
+            if(result.length > 0){
+                for(let i = 0; i < result.length; i++){
+                    this.sObjectOptions.push({label: result[i], value: result[i]});
+                }
+            }
+        });
+    }
 
     startSpinner(){
         this.loadingSpinner = true;
@@ -43,6 +53,7 @@ export default class Dlc_DataLoadCleaner extends LightningElement {
         this.startSpinner();
 
         this.showLandingPage = false;
+        this.setSObjectOptions();
         this.showNewDataLoadPage = true;
 
         this.stopSpinner();
